@@ -1,29 +1,16 @@
-import { useReducer } from "react";
-
-const initialState = {
-  value: "",
-};
-
-const inputReducer = (state, action) => {
-  switch (action.type) {
-    case "INPUT":
-      return { value: action.value };
-    default:
-      return initialState;
-  }
-};
+import React from "react";
+import useDebounce from "./useDebounce";
 
 const useInput = (validate) => {
-  const [state, dispatch] = useReducer(inputReducer, initialState);
+  const [value, setValue] = React.useState("");
+  const state = useDebounce(value, 500);
 
   const handleChange = (e) => {
-    dispatch({ type: "INPUT", value: e.target.value });
+    setValue(e.target.value);
   };
+  const isValid = validate && Boolean(state) ? validate(value) : true;
 
-  const isValid =
-    validate && Boolean(state.value) ? validate(state.value) : true;
-
-  return [state.value, handleChange, isValid];
+  return [state, handleChange, isValid];
 };
 
 export default useInput;
