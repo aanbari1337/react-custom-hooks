@@ -33,7 +33,7 @@ const windowSize = useWindowSize();
 </p>
 
 ```sh
-  const [state, unsafeDispatch] = React.useReducer(reducer, {...});
+  const [state, unsafeDispatch] = useReducer(reducer, {...});
 
   const dispatch = useSafeDispatch(unsafeDispatch);
   dispatch({type: ..., data})
