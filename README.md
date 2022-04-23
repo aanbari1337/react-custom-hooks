@@ -5,6 +5,7 @@ Custom hooks they are a mechanism to reuse stateful logic. Building your own Hoo
 
 ## useWindowSize
 <p>This hook is fired when your website reaches every breakpoint</p>
+
 ```sh
 const windowSize = useWindowSize();
 # if you are on desktop 
