@@ -27,9 +27,9 @@ const windowSize = useWindowSize();
 
 ## useSafeDispatch
 
-<p align="center">
+<p align="start">
     This hook helps you resolve this warning when using dispatch.
-    <img src="https://miro.medium.com/max/1172/1*LNooQtqru3ZavWrnxNs2mQ.png" />
+    <img width="70%" src="https://miro.medium.com/max/1172/1*LNooQtqru3ZavWrnxNs2mQ.png" />
 </p>
 
 ```sh
