@@ -1,0 +1,23 @@
+{
+  "name": "react-custom-hooks",
+  "version": "1.0.0",
+  "description": "custom hooks that you can use in any react project you build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aanbari1337/react-custom-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "author": "aanbari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aanbari1337/react-custom-hooks/issues"
+  },
+  "homepage": "https://github.com/aanbari1337/react-custom-hooks#readme"
+}
