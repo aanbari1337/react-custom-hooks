@@ -1,16 +1,31 @@
 import React from "react";
 import useDebounce from "./useDebounce";
 
-const useInput = (validate) => {
+const useInput = (validate, debounce) => {
   const [value, setValue] = React.useState("");
-  const state = useDebounce(value, 500);
+  const debouncedValue = debounce ? useDebounce(value, 500) : undefined;
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    let type = e.target.type;
+    let value = e.target.value;
+    switch (type) {
+      case "checkbox":
+        value = e.target.checked;
+        break;
+      case "file":
+        value = e.target.files;
+        break;
+      case "number":
+        value = Number(e.target.value);
+        break;
+      default:
+        break;
+    }
+    setValue(value);
   };
-  const isValid = validate && Boolean(state) ? validate(value) : true;
+  const isValid = validate && Boolean(debouncedValue) ? validate(value) : true;
 
-  return [state, handleChange, isValid];
+  return { debouncedValue, value, handleChange, isValid };
 };
 
 export default useInput;

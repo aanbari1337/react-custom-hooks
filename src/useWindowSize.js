@@ -34,7 +34,7 @@ const windowMatch = (media) => {
 const useWindowSize = () => {
   const [state, dispatch] = React.useReducer(windowSizeReducer, initialState);
 
-  const setSize = () => {
+  const setSize = React.useCallback(() => {
     const { isMobile, isTablet, isDesktop, isHD } = state;
     if (!isMobile && windowMatch("(min-width: 600px) and (max-width: 768px)"))
       return dispatch({ type: IS_MOBILE });
@@ -44,7 +44,7 @@ const useWindowSize = () => {
       return dispatch({ type: IS_DESKTOP });
     if (!isHD && windowMatch("(min-width: 1200px)"))
       return dispatch({ type: IS_HD });
-  };
+  }, []);
 
   useEventListener("resize", setSize);
 
